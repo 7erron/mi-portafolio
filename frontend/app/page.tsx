@@ -9,9 +9,13 @@ export default function Home() {
         Desarrollador Full Stack en formación
       </p>
 
-      <button className="bg-white text-black px-6 py-2 rounded-xl hover:scale-105 transition">
-        Ver proyectos
-      </button>
+      <Link href="/proyectos">
+        <button className="bg-white text-black px-6 py-2 rounded-xl hover:scale-105 transition">
+          Ver proyectos
+        </button>
+      </Link>
     </main>
   );
 }
+
+import Link from "next/link";
