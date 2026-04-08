@@ -1,22 +1,43 @@
+import Link from "next/link";
+
+const fotos = [
+  {
+    id: "1",
+    titulo: "Retrato urbano",
+    imagen: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
+  },
+  {
+    id: "2",
+    titulo: "Montaña",
+    imagen: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+  },
+  {
+    id: "3",
+    titulo: "Paisaje natural",
+    imagen: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+  },
+];
+
 export default function Proyectos() {
-  const proyectos = [
-    { id: 1, nombre: "Proyecto 1" },
-    { id: 2, nombre: "Proyecto 2" },
-    { id: 3, nombre: "Proyecto 3" },
-  ];
-
   return (
-    <main className="min-h-screen bg-black text-white p-6">
-      <h1 className="text-3xl font-bold mb-6">Mis Proyectos</h1>
+    <main className="min-h-screen bg-black text-white p-4">
+      <h1 className="text-3xl font-bold mb-6">Galería</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-        {proyectos.map((p) => (
-          <div
-            key={p.id}
-            className="bg-gray-900 p-4 rounded-xl hover:scale-105 transition cursor-pointer"
-          >
-            <h2 className="text-xl">{p.nombre}</h2>
-          </div>
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+        {fotos.map((foto) => (
+          <Link key={foto.id} href={`/proyectos/${foto.id}`}>
+            <div className="relative cursor-pointer group">
+              <img
+                src={foto.imagen}
+                alt={foto.titulo}
+                className="w-full h-60 object-cover"
+              />
+
+              <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center">
+                <p className="text-white text-sm">{foto.titulo}</p>
+              </div>
+            </div>
+          </Link>
         ))}
       </div>
     </main>
