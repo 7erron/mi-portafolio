@@ -4,17 +4,20 @@ const fotos = [
   {
     id: "1",
     titulo: "Retrato urbano",
-    imagen: "https://images.unsplash.com/photo-1544005313-94ddf0286df2",
+    categoria: "Retrato",
+    imagen: "/imagenes/1.jpeg",
   },
   {
     id: "2",
     titulo: "Montaña",
-    imagen: "https://images.unsplash.com/photo-1501785888041-af3ef285b470",
+    categoria: "Paisaje",
+    imagen: "/imagenes/2.jpeg",
   },
   {
     id: "3",
     titulo: "Paisaje natural",
-    imagen: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee",
+    categoria: "Paisaje",
+    imagen: "/imagenes/3.jpeg",
   },
 ];
 
@@ -27,9 +30,11 @@ export default function Proyectos() {
         {fotos.map((foto) => (
           <Link key={foto.id} href={`/proyectos/${foto.id}`}>
             <div className="relative cursor-pointer group">
-              <img
+              <Image
                 src={foto.imagen}
                 alt={foto.titulo}
+                width={500}
+                height={500}
                 className="w-full h-60 object-cover"
               />
 
@@ -43,3 +48,5 @@ export default function Proyectos() {
     </main>
   );
 }
+
+import Image from "next/image";
